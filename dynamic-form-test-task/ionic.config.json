@@ -1,0 +1,7 @@
+{
+  "name": "dynamic-form-test-task",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

@@ -1,0 +1,135 @@
+.form-container {
+  margin: 25px 25px 150px 25px;
+}
+
+.form-row-cls {
+  margin: 10px 0;
+}
+
+.form-control-label-cls {
+  font-size: 14px;
+}
+
+h3 {
+  color: rgba($color: #000000, $alpha: 0.5);
+}
+
+.form-control-input-cls {
+  border-bottom: 2px solid rgba(black, 0.5);
+  width: 50%;
+  font-size: 14px;
+}
+
+.form-control-error-msg-cls {
+  color: red;
+  font-size: 12px;
+}
+
+input[type="date"] {
+  font-family: "Roboto", sans-serif;
+  height: 50px;
+  background-color: white;
+  color: black;
+  border: none;
+  outline: none;
+  border-bottom: 2px solid rgba(black, 0.5);
+  font-size: 14px;
+}
+
+// ::-webkit-calendar-picker-indicator {
+//   filter: invert(1);
+// }
+
+.section-cls {
+  border-bottom: 1px solid rgba(gray, 0.4);
+}
+
+.font-14 {
+  font-size: 14px;
+}
+
+select {
+  height: 50px;
+  background: white;
+  color: #000000;
+  border: none;
+  outline: none;
+}
+
+option {
+  height: 20px;
+}
+
+//checkbox
+/* The container */
+.checkbox-container {
+  // display: block;
+  position: relative;
+  padding-left: 25px;
+  padding-right: 10px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 14px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.checkbox-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 15px;
+  width: 15px;
+  background-color: #ccc;
+}
+
+/* On mouse-over, add a grey background color */
+.checkbox-container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.checkbox-container input:checked ~ .checkmark {
+  background-color: #a43e27;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.checkbox-container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.checkbox-container .checkmark:after {
+  left: 4px;
+  // top: 5px;
+  width: 4px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.form-control-error-cls {
+  border-bottom: 2px solid red;
+}

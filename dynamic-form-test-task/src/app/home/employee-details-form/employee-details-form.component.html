@@ -1,0 +1,125 @@
+<ion-content>
+  <form
+    [formGroup]="employeeDetailsForm"
+    *ngIf="isFormCreated"
+    (ngSubmit)="submitForm()"
+  >
+    <ion-grid class="form-container">
+      <ion-row>
+        <ion-col>
+          <div class="form-label-cls">
+            <h2>
+              {{ formDataStructure.title ? formDataStructure.title : "" }}
+            </h2>
+            <p>
+              Fields marked
+              <span style="color: red">*</span>
+              are mandatory.
+            </p>
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row
+        *ngFor="let section of formDataStructure.formFields"
+        class="section-cls"
+      >
+        <ion-col>
+          <div [formGroupName]="section.formattedLabel">
+            <h3>{{ section.label }}</h3>
+            <ion-grid>
+              <ion-row
+                *ngFor="let control of section.fields"
+                class="form-row-cls"
+              >
+                <ion-col size="12" size-md="2" class="form-control-label-cls">
+                  <ion-text
+                    >{{ control.label
+                    }}<span
+                      *ngIf="control.validations?.isRequired"
+                      style="color: red"
+                      >*</span
+                    ></ion-text
+                  >
+                </ion-col>
+                <ion-col>
+                  <input
+                    *ngIf="control.type === 'text'"
+                    [type]="control.type"
+                    [formControlName]="control.name"
+                    [placeholder]="control.placeholder"
+                    class="form-control-input-cls"
+                    [class.form-control-error-cls]="isInvalid(control, section)"
+                  />
+                  <input
+                    *ngIf="control.type === 'date'"
+                    [type]="control.type"
+                    [formControlName]="control.name"
+                    class="form-control-input-cls"
+                    [id]="control.name"
+                    [class.form-control-error-cls]="isInvalid(control, section)"
+                  />
+                  <ion-radio-group
+                    *ngIf="control.type === 'radio'"
+                    [formControlName]="control.name"
+                  >
+                    <ion-radio
+                      *ngFor="let option of control.options"
+                      [value]="option.value"
+                      labelPlacement="end"
+                      style="padding-right: 10px"
+                      class="font-14"
+                      >{{ option.label }}
+                    </ion-radio>
+                  </ion-radio-group>
+                  <ng-container *ngIf="control.type === 'checkbox'">
+                    <ng-container *ngFor="let option of control.options">
+                      <label class="checkbox-container" [for]="option.value"
+                        >{{ option.label }}
+                        <input
+                          [type]="control.type"
+                          [formControlName]="control.name"
+                          [value]="option.value"
+                          [name]="control.name"
+                          [id]="option.value"
+                        />
+                        <span class="checkmark"></span>
+                      </label>
+                    </ng-container>
+                  </ng-container>
+                  <select
+                    *ngIf="control.type === 'select'"
+                    [formControlName]="control.name"
+                    class="form-control-input-cls"
+                    [class.form-control-error-cls]="isInvalid(control, section)"
+                  >
+                    <option value="">{{ "Select " + control.label }}</option>
+                    <option
+                      *ngFor="let option of control.options"
+                      [value]="option.value"
+                      class="font-14"
+                    >
+                      {{ option.label }}
+                    </option>
+                  </select>
+                  <ng-container *ngIf="isInvalid(control, section)">
+                    <p
+                      *ngFor="let error of getErrorMessages(control, section)"
+                      class="form-control-error-msg-cls"
+                    >
+                      {{ error }}
+                    </p>
+                  </ng-container>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-button (click)="submitForm()">Submit</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+</ion-content>

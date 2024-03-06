@@ -1,0 +1,81 @@
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: #fff;
+}
+
+ion-button {
+  --background: #a43e27;
+  --color: white;
+}
+
+.toast-error-custom-class {
+  --color: #ffffff;
+  --border-radius: 3px;
+  --border-style: solid;
+  --border-width: 3px;
+  --button-color: #ffffff;
+  --border-color: #b00020;
+  --background: #b00020;
+}
+
+.toast-info-custom-class {
+  --color: #ffffff;
+  --border-radius: 3px;
+  --border-style: solid;
+  --border-width: 3px;
+  --button-color: #ffffff;
+  --border-color: green;
+  --background: green;
+}
+
+ion-radio {
+  --color: #a43e27;
+  --color-checked: #a43e27;
+}
+
+input[type="checkbox"] {
+  height: 15px;
+  width: 15px;
+  font-size: 12px;
+  cursor: pointer;
+  background-color: white !important;
+}
+
+input[type="checkbox"]:hover {
+  accent-color: #a43e27;
+}
+
+input[type="checkbox"]:checked {
+  accent-color: #a43e27;
+}
+
+ion-checkbox {
+  --checkbox-background-checked: #a43e27;
+  --border-color-checked: #a43e27;
+  --border-color: #a43e27;
+}
+
+input[type="date"] {
+  position: relative;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: auto;
+  height: auto;
+  color: transparent;
+  background: transparent;
+  filter: invert(1);
+}
+
+input[type="text"] {
+  background-color: white;
+  border: none;
+  outline: none;
+  height: 50px;
+  color: black;
+}
